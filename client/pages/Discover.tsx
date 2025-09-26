@@ -75,7 +75,7 @@ export default function Discover() {
     <div className="py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
-          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Discover Magical Artists</h1>
+          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">Discover Magical Artists</h1>
           <p className="mt-2 text-foreground/80">Find and book extraordinary performers for your next event.</p>
         </header>
 
