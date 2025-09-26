@@ -170,7 +170,7 @@ export default function Community() {
     <div className="py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
-          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Community</h1>
+          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">Community</h1>
           <p className="mt-2 text-foreground/80">Organizers can post requirements; artists see relevant opportunities by category.</p>
         </header>
 
