@@ -70,9 +70,7 @@ export default function IntroOverlay() {
           <h1 className="opacity-0 animate-fade-in-up font-serif text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Enter the Artist World
           </h1>
-          <p
-            className="opacity-0 animate-fade-in-up [animation-delay:120ms] mt-4 text-base sm:text-lg text-foreground/85"
-          >
+          <p className="opacity-0 animate-fade-in-up [animation-delay:120ms] mt-4 text-base sm:text-lg text-foreground/85">
             Discover, book, and support incredible talent across every genre.
           </p>
           <div className="opacity-0 animate-fade-in-up [animation-delay:220ms] mt-8 flex items-center justify-center gap-3">

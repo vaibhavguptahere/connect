@@ -13,7 +13,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
-import { CalendarDays, Filter, IndianRupee, Mail, MapPin, Search } from "lucide-react";
+import {
+  CalendarDays,
+  Filter,
+  IndianRupee,
+  Mail,
+  MapPin,
+  Search,
+} from "lucide-react";
 
 const CATEGORIES = [
   "Magician",
@@ -100,8 +107,12 @@ export default function Community() {
     let out = items.slice();
 
     if (categoryFilter) out = out.filter((r) => r.category === categoryFilter);
-    if (locationFilter) out = out.filter((r) => r.location.toLowerCase() === locationFilter.toLowerCase());
-    if (minBudget !== "any") out = out.filter((r) => r.budget >= Number(minBudget));
+    if (locationFilter)
+      out = out.filter(
+        (r) => r.location.toLowerCase() === locationFilter.toLowerCase(),
+      );
+    if (minBudget !== "any")
+      out = out.filter((r) => r.budget >= Number(minBudget));
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       out = out.filter(
@@ -121,10 +132,15 @@ export default function Community() {
         out.sort((a, b) => a.budget - b.budget);
         break;
       case "date-soon":
-        out.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        out.sort(
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+        );
         break;
       default:
-        out.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        out.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        );
     }
 
     return out;
@@ -139,8 +155,18 @@ export default function Community() {
   }
 
   function addRequirement() {
-    if (!title.trim() || !category || !date || !location.trim() || !budget || !contact.trim()) {
-      toast({ title: "Missing details", description: "Please fill all required fields." });
+    if (
+      !title.trim() ||
+      !category ||
+      !date ||
+      !location.trim() ||
+      !budget ||
+      !contact.trim()
+    ) {
+      toast({
+        title: "Missing details",
+        description: "Please fill all required fields.",
+      });
       return;
     }
     const value: Requirement = {
@@ -164,15 +190,23 @@ export default function Community() {
     setLocation("");
     setBudget("");
     setContact("");
-    toast({ title: "Requirement posted", description: "Your request is now visible to matching artists." });
+    toast({
+      title: "Requirement posted",
+      description: "Your request is now visible to matching artists.",
+    });
   }
 
   return (
     <div className="py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
-          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">Community</h1>
-          <p className="mt-2 text-foreground/80">Organizers can post requirements; artists see relevant opportunities by category.</p>
+          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">
+            Community
+          </h1>
+          <p className="mt-2 text-foreground/80">
+            Organizers can post requirements; artists see relevant opportunities
+            by category.
+          </p>
         </header>
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -213,7 +247,10 @@ export default function Community() {
                   </div>
                   <div>
                     <Label className="mb-2 block">Category</Label>
-                    <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                    <Select
+                      value={categoryFilter}
+                      onValueChange={setCategoryFilter}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="All" />
                       </SelectTrigger>
@@ -229,7 +266,10 @@ export default function Community() {
                   </div>
                   <div>
                     <Label className="mb-2 block">Location</Label>
-                    <Select value={locationFilter} onValueChange={setLocationFilter}>
+                    <Select
+                      value={locationFilter}
+                      onValueChange={setLocationFilter}
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Anywhere" />
                       </SelectTrigger>
@@ -267,14 +307,24 @@ export default function Community() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="recent">Most Recent</SelectItem>
-                          <SelectItem value="date-soon">Event Date (Soonest)</SelectItem>
-                          <SelectItem value="budget-high">Budget: High to Low</SelectItem>
-                          <SelectItem value="budget-low">Budget: Low to High</SelectItem>
+                          <SelectItem value="date-soon">
+                            Event Date (Soonest)
+                          </SelectItem>
+                          <SelectItem value="budget-high">
+                            Budget: High to Low
+                          </SelectItem>
+                          <SelectItem value="budget-low">
+                            Budget: Low to High
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
-                  <Button variant="outline" className="w-full" onClick={clearFilters}>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={clearFilters}
+                  >
                     Clear Filters
                   </Button>
                 </div>
@@ -321,7 +371,9 @@ export default function Community() {
                             type="button"
                             onClick={() => setCategory(c)}
                             className={`px-3 py-1 text-xs rounded-full border transition-colors ${
-                              category === c ? "bg-primary text-primary-foreground border-primary" : "hover:bg-muted/40"
+                              category === c
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "hover:bg-muted/40"
                             }`}
                           >
                             {c}
@@ -336,14 +388,24 @@ export default function Community() {
                       <Label className="mb-2 block">Event Date</Label>
                       <div className="relative">
                         <CalendarDays className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
-                        <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="pl-9" />
+                        <Input
+                          type="date"
+                          value={date}
+                          onChange={(e) => setDate(e.target.value)}
+                          className="pl-9"
+                        />
                       </div>
                     </div>
                     <div>
                       <Label className="mb-2 block">Location</Label>
                       <div className="relative">
                         <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
-                        <Input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="City / Venue" className="pl-9" />
+                        <Input
+                          value={location}
+                          onChange={(e) => setLocation(e.target.value)}
+                          placeholder="City / Venue"
+                          className="pl-9"
+                        />
                       </div>
                     </div>
                   </div>
@@ -352,14 +414,26 @@ export default function Community() {
                       <Label className="mb-2 block">Budget (₹)</Label>
                       <div className="relative">
                         <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
-                        <Input type="number" min={0} value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="e.g., 15000" className="pl-9" />
+                        <Input
+                          type="number"
+                          min={0}
+                          value={budget}
+                          onChange={(e) => setBudget(e.target.value)}
+                          placeholder="e.g., 15000"
+                          className="pl-9"
+                        />
                       </div>
                     </div>
                     <div>
                       <Label className="mb-2 block">Contact</Label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-60" />
-                        <Input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Email / Phone" className="pl-9" />
+                        <Input
+                          value={contact}
+                          onChange={(e) => setContact(e.target.value)}
+                          placeholder="Email / Phone"
+                          className="pl-9"
+                        />
                       </div>
                     </div>
                   </div>
@@ -372,18 +446,29 @@ export default function Community() {
                     />
                   </div>
                   <div className="flex justify-end">
-                    <Button onClick={addRequirement} className="bg-gradient-to-r from-primary to-accent">Post Requirement</Button>
+                    <Button
+                      onClick={addRequirement}
+                      className="bg-gradient-to-r from-primary to-accent"
+                    >
+                      Post Requirement
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ) : (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-semibold">Matching Opportunities</h2>
-                  <div className="text-sm text-foreground/70">{visible.length} results</div>
+                  <h2 className="text-xl font-semibold">
+                    Matching Opportunities
+                  </h2>
+                  <div className="text-sm text-foreground/70">
+                    {visible.length} results
+                  </div>
                 </div>
                 {visible.length === 0 ? (
-                  <div className="rounded-xl border border-dashed p-8 text-center text-foreground/70">No requirements yet. Adjust filters to discover more.</div>
+                  <div className="rounded-xl border border-dashed p-8 text-center text-foreground/70">
+                    No requirements yet. Adjust filters to discover more.
+                  </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {visible.map((r, i) => (
@@ -395,31 +480,52 @@ export default function Community() {
                         transition={{ delay: i * 0.06 }}
                       >
                         <Card className="border-border/80 hover:border-accent transition-colors">
-                        <CardHeader className="pb-3">
-                          <div className="flex items-start justify-between gap-2">
-                            <CardTitle className="text-base md:text-lg leading-tight">{r.title}</CardTitle>
-                            <span className="rounded-full border px-2 py-0.5 text-xs">{r.category}</span>
-                          </div>
-                          <div className="mt-1 text-xs text-foreground/60">Posted {timeAgo(r.createdAt)}</div>
-                        </CardHeader>
-                        <CardContent className="space-y-3 text-sm">
-                          <div className="flex flex-wrap gap-2 text-foreground/80">
-                            <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs"><CalendarDays className="h-3.5 w-3.5" /> {new Date(r.date).toDateString()}</span>
-                            <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs"><MapPin className="h-3.5 w-3.5" /> {r.location}</span>
-                            <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs"><IndianRupee className="h-3.5 w-3.5" /> {r.budget.toLocaleString()}</span>
-                          </div>
-                          {r.description && <p className="text-foreground/80">{r.description}</p>}
-                          <div className="flex items-center justify-between">
-                            <div className="text-foreground/70 text-xs md:text-sm">Contact: <span className="font-medium">{r.contact}</span></div>
-                            <a
-                              href={`mailto:${r.contact}`}
-                              className="text-xs md:text-sm rounded-md border border-border px-3 py-1 hover:bg-muted/40"
-                            >
-                              Email
-                            </a>
-                          </div>
-                        </CardContent>
-                      </Card>
+                          <CardHeader className="pb-3">
+                            <div className="flex items-start justify-between gap-2">
+                              <CardTitle className="text-base md:text-lg leading-tight">
+                                {r.title}
+                              </CardTitle>
+                              <span className="rounded-full border px-2 py-0.5 text-xs">
+                                {r.category}
+                              </span>
+                            </div>
+                            <div className="mt-1 text-xs text-foreground/60">
+                              Posted {timeAgo(r.createdAt)}
+                            </div>
+                          </CardHeader>
+                          <CardContent className="space-y-3 text-sm">
+                            <div className="flex flex-wrap gap-2 text-foreground/80">
+                              <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs">
+                                <CalendarDays className="h-3.5 w-3.5" />{" "}
+                                {new Date(r.date).toDateString()}
+                              </span>
+                              <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs">
+                                <MapPin className="h-3.5 w-3.5" /> {r.location}
+                              </span>
+                              <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs">
+                                <IndianRupee className="h-3.5 w-3.5" />{" "}
+                                {r.budget.toLocaleString()}
+                              </span>
+                            </div>
+                            {r.description && (
+                              <p className="text-foreground/80">
+                                {r.description}
+                              </p>
+                            )}
+                            <div className="flex items-center justify-between">
+                              <div className="text-foreground/70 text-xs md:text-sm">
+                                Contact:{" "}
+                                <span className="font-medium">{r.contact}</span>
+                              </div>
+                              <a
+                                href={`mailto:${r.contact}`}
+                                className="text-xs md:text-sm rounded-md border border-border px-3 py-1 hover:bg-muted/40"
+                              >
+                                Email
+                              </a>
+                            </div>
+                          </CardContent>
+                        </Card>
                       </M.div>
                     ))}
                   </div>

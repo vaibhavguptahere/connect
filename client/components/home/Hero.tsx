@@ -38,7 +38,9 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="mt-4 text-lg text-foreground/80"
           >
-            ConnectArtist is the premium platform for musicians, singers, and performers to create stunning profiles, share their work, and get booked.
+            ConnectArtist is the premium platform for musicians, singers, and
+            performers to create stunning profiles, share their work, and get
+            booked.
           </M.p>
           <M.div
             initial={{ opacity: 0, y: 12 }}
@@ -46,10 +48,16 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mt-6 flex flex-col sm:flex-row gap-3"
           >
-            <a href="/get-started" className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-primary-foreground shadow hover:opacity-95 transition-opacity">
+            <a
+              href="/get-started"
+              className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-primary-foreground shadow hover:opacity-95 transition-opacity"
+            >
               Get Started
             </a>
-            <a href="/discover" className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-semibold hover:bg-muted/40 transition-colors">
+            <a
+              href="/discover"
+              className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-semibold hover:bg-muted/40 transition-colors"
+            >
               Explore Artists
             </a>
           </M.div>

@@ -98,7 +98,9 @@ export default {
           "100%": { backgroundPosition: "100% 50%" },
         },
         glow: {
-          "0%,100%": { filter: "drop-shadow(0 0 0.35rem rgba(99,102,241,0.45))" },
+          "0%,100%": {
+            filter: "drop-shadow(0 0 0.35rem rgba(99,102,241,0.45))",
+          },
           "50%": { filter: "drop-shadow(0 0 0.65rem rgba(236,72,153,0.55))" },
         },
       },
@@ -111,7 +113,7 @@ export default {
         "blink-caret": "blink-caret 0.75s step-end infinite",
         "gradient-x": "gradient-x 8s ease-in-out infinite alternate",
         glow: "glow 3.5s ease-in-out infinite",
-      }
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

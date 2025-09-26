@@ -1,10 +1,22 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth, UserRole } from "@/context/auth";
 
-export default function AuthDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
+export default function AuthDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (o: boolean) => void;
+}) {
   const { login } = useAuth();
   const [role, setRole] = useState<UserRole>("artist");
   const [name, setName] = useState("");
@@ -25,11 +37,13 @@ export default function AuthDialog({ open, onOpenChange }: { open: boolean; onOp
         </DialogHeader>
         <div className="space-y-3">
           <div className="grid grid-cols-3 gap-2 text-sm">
-            {([
-              { key: "artist", label: "Artist" },
-              { key: "organizer", label: "Organizer" },
-              { key: "audience", label: "Audience" },
-            ] as const).map((r) => (
+            {(
+              [
+                { key: "artist", label: "Artist" },
+                { key: "organizer", label: "Organizer" },
+                { key: "audience", label: "Audience" },
+              ] as const
+            ).map((r) => (
               <button
                 key={r.key}
                 type="button"
@@ -42,15 +56,31 @@ export default function AuthDialog({ open, onOpenChange }: { open: boolean; onOp
           </div>
           <div className="grid gap-2">
             <label className="text-sm">Name</label>
-            <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" />
+            <Input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+            />
           </div>
           <div className="grid gap-2">
             <label className="text-sm">Email (optional)</label>
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" type="email" />
+            <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              type="email"
+            />
           </div>
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button className="bg-gradient-to-r from-primary to-accent" onClick={submit}>Continue</Button>
+            <Button variant="outline" onClick={() => onOpenChange(false)}>
+              Cancel
+            </Button>
+            <Button
+              className="bg-gradient-to-r from-primary to-accent"
+              onClick={submit}
+            >
+              Continue
+            </Button>
           </div>
         </div>
       </DialogContent>
