@@ -189,8 +189,14 @@ export default function Discover() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((a) => (
-            <article key={a.id} className="rounded-xl border border-border bg-card/60 backdrop-blur overflow-hidden hover:border-primary transition-colors">
+          {filtered.map((a, i) => (
+            <M.article
+              key={a.id}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-xl border border-border bg-card/60 backdrop-blur overflow-hidden hover:border-primary transition" >
               <img src={a.imageUrl} alt={a.name} className="h-56 w-full object-cover" />
               <div className="p-5">
                 <h3 className="text-xl font-semibold">{a.name}</h3>
@@ -203,7 +209,7 @@ export default function Discover() {
                   <a href={`/artist/${a.id}`} className="inline-flex items-center justify-center rounded-lg border border-border px-4 py-2 text-sm hover:bg-muted/40">View Profile</a>
                 </div>
               </div>
-            </article>
+            </M.article>
           ))}
         </div>
       </div>
