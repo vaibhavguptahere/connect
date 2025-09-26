@@ -23,13 +23,14 @@ export default function IntroOverlay() {
   }, []);
 
   useEffect(() => {
+    const el = document.body;
     if (open) {
-      document.documentElement.classList.add("overflow-hidden");
+      el.classList.add("overflow-hidden");
     } else {
-      document.documentElement.classList.remove("overflow-hidden");
+      el.classList.remove("overflow-hidden");
     }
     return () => {
-      document.documentElement.classList.remove("overflow-hidden");
+      el.classList.remove("overflow-hidden");
     };
   }, [open]);
 
