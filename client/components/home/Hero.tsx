@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { M } from "@/components/ui/motion";
 
 const IMAGES = [
   "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
