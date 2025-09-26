@@ -10,7 +10,7 @@ export default function Header() {
         <nav className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm">
             <li>
-              <NavLink to="/" end className={({isActive})=>`px-2 py-1 rounded-md transition-colors ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
+              <NavLink to="/" end className={({isActive})=>`px-2 py-1 rounded-md transition-colors link-underline ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
                 Home
               </NavLink>
             </li>
