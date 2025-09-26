@@ -386,8 +386,15 @@ export default function Community() {
                   <div className="rounded-xl border border-dashed p-8 text-center text-foreground/70">No requirements yet. Adjust filters to discover more.</div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {visible.map((r) => (
-                      <Card key={r.id} className="border-border/80 hover:border-accent transition-colors">
+                    {visible.map((r, i) => (
+                      <M.div
+                        key={r.id}
+                        initial={{ opacity: 0, y: 18 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ delay: i * 0.06 }}
+                      >
+                        <Card className="border-border/80 hover:border-accent transition-colors">
                         <CardHeader className="pb-3">
                           <div className="flex items-start justify-between gap-2">
                             <CardTitle className="text-base md:text-lg leading-tight">{r.title}</CardTitle>
@@ -413,6 +420,7 @@ export default function Community() {
                           </div>
                         </CardContent>
                       </Card>
+                      </M.div>
                     ))}
                   </div>
                 )}
