@@ -77,7 +77,7 @@ export default function TopCharts() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Top Charts • Trending Artists</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">Top Charts • Trending Artists</h2>
             <p className="mt-1 text-sm text-foreground/70">Weekly ranking based on bookings, views, likes, and ratings.</p>
           </div>
           <div className="hidden sm:flex items-center gap-2 text-xs">
