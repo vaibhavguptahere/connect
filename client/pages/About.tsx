@@ -44,7 +44,7 @@ export default function About() {
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
-          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">About ConnectArtist</h1>
+          <h1 className="font-serif text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">About ConnectArtist</h1>
           <p className="mt-3 text-foreground/80 max-w-2xl mx-auto">Bridging the gap between artists and opportunities.</p>
         </header>
 
