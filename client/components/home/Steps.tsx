@@ -20,7 +20,7 @@ export default function Steps() {
   ];
   return (
     <section className="py-16 md:py-20 bg-gradient-to-b from-background via-background/95 to-background">
-      <h2 className="text-center font-serif text-3xl md:text-4xl font-bold">How It Works</h2>
+      <h2 className="text-center font-serif text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">How It Works</h2>
       <div className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {steps.map(({ title, Icon, desc }, i) => (
           <div
