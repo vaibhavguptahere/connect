@@ -1,8 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/70 bg-background/90 border-b border-border">
+    <header className={`fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/70 bg-background/90 border-b border-border transition-shadow ${scrolled ? "shadow-md" : "shadow-none"}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="font-serif text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ConnectArtist</span>

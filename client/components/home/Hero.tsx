@@ -55,7 +55,19 @@ export default function Hero() {
           </M.div>
         </div>
         <div className="relative hidden md:block">
-          <div className="relative w-full h-[420px] rounded-xl overflow-hidden border border-border shadow-lg">
+          <div
+            onMouseMove={(e) => {
+              const el = e.currentTarget;
+              const rect = el.getBoundingClientRect();
+              const mx = (e.clientX - rect.left) / rect.width - 0.5;
+              const my = (e.clientY - rect.top) / rect.height - 0.5;
+              el.style.transform = `perspective(1000px) rotateX(${(-my * 2).toFixed(2)}deg) rotateY(${(mx * 2).toFixed(2)}deg) translateZ(0)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "none";
+            }}
+            className="relative w-full h-[420px] rounded-xl overflow-hidden border border-border shadow-lg transition-transform duration-300 will-change-transform"
+          >
             <div ref={slidesRef} className="absolute inset-0">
               {IMAGES.map((src, i) => (
                 <img
