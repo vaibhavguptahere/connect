@@ -15,17 +15,17 @@ export default function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/discover" className={({isActive})=>`px-2 py-1 rounded-md transition-colors ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
+              <NavLink to="/discover" className={({isActive})=>`px-2 py-1 rounded-md transition-colors link-underline ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
                 Discover
               </NavLink>
             </li>
             <li>
-              <NavLink to="/community" className={({isActive})=>`px-2 py-1 rounded-md transition-colors ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
+              <NavLink to="/community" className={({isActive})=>`px-2 py-1 rounded-md transition-colors link-underline ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
                 Community
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className={({isActive})=>`px-2 py-1 rounded-md transition-colors ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
+              <NavLink to="/about" className={({isActive})=>`px-2 py-1 rounded-md transition-colors link-underline ${isActive?"text-foreground":"text-foreground/80 hover:text-foreground"}`}>
                 About
               </NavLink>
             </li>
