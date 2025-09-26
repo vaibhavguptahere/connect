@@ -40,17 +40,22 @@ const items = [
   },
 ] as const;
 
+import { M } from "@/components/ui/motion";
+
 export default function Benefits() {
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-background via-background/95 to-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl md:text-4xl font-bold text-center">Why Book With Us</h2>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow">Why Book With Us</h2>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map(({ title, desc, Icon, footer }, i) => (
-            <article
+            <M.article
               key={title}
-              className="opacity-0 translate-y-8 animate-fade-in-up rounded-xl border border-border bg-card/60 backdrop-blur px-5 py-6 shadow-sm hover:shadow transition-shadow"
-              style={{ animationDelay: `${i * 90}ms`, animationFillMode: "both" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-xl border border-border bg-card/60 backdrop-blur px-5 py-6 shadow-sm hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start gap-3">
                 <div className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-background/60 text-primary">
@@ -71,7 +76,7 @@ export default function Benefits() {
                   </a>
                 </div>
               )}
-            </article>
+            </M.article>
           ))}
         </div>
       </div>
