@@ -24,12 +24,22 @@ export default function Hero() {
     <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 items-center gap-10">
         <div className="max-w-xl">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <M.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-x text-glow"
+          >
             Showcase Your Talent to the World
-          </h1>
-          <p className="mt-4 text-lg text-foreground/80">
+          </M.h1>
+          <M.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="mt-4 text-lg text-foreground/80"
+          >
             ConnectArtist is the premium platform for musicians, singers, and performers to create stunning profiles, share their work, and get booked.
-          </p>
+          </M.p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="/get-started" className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-primary-foreground shadow hover:opacity-95 transition-opacity">
               Get Started
