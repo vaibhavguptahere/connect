@@ -93,6 +93,14 @@ export default {
           to: { borderColor: "transparent" },
           "50%": { borderColor: "hsl(var(--primary))" },
         },
+        "gradient-x": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "100% 50%" },
+        },
+        glow: {
+          "0%,100%": { filter: "drop-shadow(0 0 0.35rem rgba(99,102,241,0.45))" },
+          "50%": { filter: "drop-shadow(0 0 0.65rem rgba(236,72,153,0.55))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,7 +109,9 @@ export default {
         kenburns: "kenburns 42s ease-in-out infinite",
         typing: "typing 3.5s steps(40, end)",
         "blink-caret": "blink-caret 0.75s step-end infinite",
-      },
+        "gradient-x": "gradient-x 8s ease-in-out infinite alternate",
+        glow: "glow 3.5s ease-in-out infinite",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
